@@ -1,7 +1,7 @@
 function App() {
    return (
       <>
-         <h1>Recipe Calories</h1>
+         <h1>Knowledge Cafe</h1>
       </>
    );
 }

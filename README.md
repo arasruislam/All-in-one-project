@@ -1,1 +1,1 @@
-# practice-with-react-redux
+# Practices
