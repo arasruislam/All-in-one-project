@@ -3,7 +3,7 @@ import recipeImg from "../../assets/recipe_1.png";
 import { IoTimeOutline } from "react-icons/io5";
 import { PiFireSimple } from "react-icons/pi";
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ recipe, handleWantToCook }) => {
    const { id, image, name, description, ingredients, time, calories } = recipe;
    return (
       <>
@@ -41,7 +41,10 @@ const Recipe = ({ recipe }) => {
                </p>
             </div>
 
-            <button className="btn title_font bg-[#0BE58A] border-none rounded-full">
+            <button
+               onClick={() => handleWantToCook(recipe)}
+               className="btn title_font bg-[#0BE58A] border-none rounded-full"
+            >
                Want to Cook
             </button>
          </div>
