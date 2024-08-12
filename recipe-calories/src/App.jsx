@@ -7,7 +7,8 @@ import toast from "react-hot-toast";
 
 function App() {
    const [recipes, setRecipes] = useState([]);
-   const [cookRecipes, setCookRecipes] = useState([]);
+   const [wantToCook, setWantToCook] = useState([]);
+   const [cookingRecipes, setCookingRecipes] = useState([]);
 
    useEffect(() => {
       fetch("./recipes.json")
@@ -15,16 +16,27 @@ function App() {
          .then((data) => setRecipes(data));
    }, []);
 
-   // handle cooked recipes
+   // handle want to cook recipes
    const handleWantToCook = (recipe) => {
-      const isExits = cookRecipes.find((cooked) => cooked.id === recipe.id);
+      const isExits = wantToCook.find((cooked) => cooked.id === recipe.id);
 
       if (!isExits) {
-         setCookRecipes([...cookRecipes, recipe]);
+         setWantToCook([...wantToCook, recipe]);
          toast.success("Recipe Added");
       } else {
          toast.error("Recipe Already Exit!");
       }
+   };
+
+   // handle cooking recipes
+   const handleCookingRecipe = (recipe) => {
+      const remainingWantToCookRecipes = wantToCook.filter(
+         (cooked) => cooked.id !== recipe.id
+      );
+
+      setWantToCook(remainingWantToCookRecipes);
+      setCookingRecipes([...cookingRecipes, recipe]);
+      toast.success("add recipe for preparing");
    };
 
    return (
@@ -57,7 +69,11 @@ function App() {
                </div>
                {/* cart */}
                <div className="w-full lg:w-2/5">
-                  <Recipe_Cart cookRecipes={cookRecipes} />
+                  <Recipe_Cart
+                     wantToCook={wantToCook}
+                     handleCookingRecipe={handleCookingRecipe}
+                     cookingRecipes={cookingRecipes}
+                  />
                </div>
             </div>
          </div>
