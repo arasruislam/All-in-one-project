@@ -29,11 +29,11 @@ const Header = () => {
                <ul className="menu menu-horizontal px-1">{navItem}</ul>
             </div>
             <div className="navbar-end">
-               <div className="form-control mr-2">
+               <div className="form-control mr-2 hidden lg:flex">
                   <input
                      type="text"
-                     placeholder="Search"
-                     className="input input-bordered rounded-full w-24 md:w-auto"
+                     placeholder="Search..."
+                     className="input input-bordered input-sm rounded-full w-24 md:w-auto"
                   />
                </div>
                <div className="dropdown dropdown-end">
@@ -54,6 +54,14 @@ const Header = () => {
                      className="block lg:hidden menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                   >
                      {navItem}
+
+                     <div className="form-control mr-2">
+                        <input
+                           type="text"
+                           placeholder="Search..."
+                           className="input input-bordered rounded-full w-24 md:w-auto"
+                        />
+                     </div>
                   </ul>
                </div>
             </div>
