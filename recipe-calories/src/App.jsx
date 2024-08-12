@@ -1,8 +1,14 @@
+import Banner from "./components/Header/Banner";
+import Header from "./components/Header/Header";
+
 function App() {
    return (
-      <>
-         <h1>Recipe Calories</h1>
-      </>
+      <div className="w-11/12 mx-auto">
+         {/* nav bar */}
+         <Header />
+         {/* banner */}
+         <Banner />
+      </div>
    );
 }
 
