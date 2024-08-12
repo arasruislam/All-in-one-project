@@ -58,7 +58,7 @@ function App() {
             </div>
             {/* recipes */}
             <div className="flex flex-col lg:flex-row gap-4 mt-8">
-               <div className="w-full lg:w-3/5 grid grid-cols-2 gap-4">
+               <div className="w-full lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-4">
                   {recipes.map((recipe) => (
                      <Recipe
                         key={recipe.id}

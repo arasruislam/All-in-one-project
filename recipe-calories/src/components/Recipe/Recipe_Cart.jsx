@@ -1,6 +1,23 @@
 import React from "react";
 
 const Recipe_Cart = ({ wantToCook, handleCookingRecipe, cookingRecipes }) => {
+   const totalTime = cookingRecipes.reduce((previousValue, currentValue) => {
+      const currentRecipeMakingTime = parseInt(
+         currentValue.time.split(" ")[0],
+         10
+      );
+
+      return previousValue + currentRecipeMakingTime;
+   }, 0);
+   const totalCalories = cookingRecipes.reduce((previousValue, currentValue) => {
+      const currentRecipeMakingTime = parseInt(
+         currentValue.calories.split(" ")[0],
+         10
+      );
+
+      return previousValue + currentRecipeMakingTime;
+   }, 0);
+
    return (
       <>
          <div className="p-6 space-y-6 border rounded-lg">
@@ -83,10 +100,14 @@ const Recipe_Cart = ({ wantToCook, handleCookingRecipe, cookingRecipes }) => {
                            ))}
 
                            <tr>
-                              <th></th>
-                              <td></td>
-                              <td>Total Time: </td>
-                              <td>Total Calories: </td>
+                              {/* <th></th>
+                              <td></td> */}
+                              <td colSpan="2">
+                                 <span className="font-bold">Total Time:</span> {totalTime} min
+                              </td>
+                              <td colSpan="2">
+                                 <span className="font-bold">Total Calories:</span> {totalCalories} Calorie
+                              </td>
                            </tr>
                         </tbody>
                      </table>
