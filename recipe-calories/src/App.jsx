@@ -1,9 +1,17 @@
+import { useEffect, useState } from "react";
 import Banner from "./components/Header/Banner";
 import Header from "./components/Header/Header";
 import Recipe from "./components/Recipe/Recipe";
 import Recipe_Cart from "./components/Recipe/Recipe_Cart";
 
 function App() {
+   const [recipes, setRecipes] = useState([]);
+   useEffect(() => {
+      fetch("./recipes.json")
+         .then((res) => res.json())
+         .then((data) => setRecipes(data));
+   }, []);
+
    return (
       <div className="w-11/12 mx-auto">
          {/* nav bar */}
@@ -23,8 +31,10 @@ function App() {
             </div>
             {/* recipes */}
             <div className="flex flex-col lg:flex-row gap-4 mt-8">
-               <div className="w-full lg:w-3/5">
-                  <Recipe />
+               <div className="w-full lg:w-3/5 grid grid-cols-2 gap-4">
+                  {recipes.map((recipe) => (
+                     <Recipe key={recipe.id} recipe={recipe} />
+                  ))}
                </div>
                {/* cart */}
                <div className="w-full lg:w-2/5">

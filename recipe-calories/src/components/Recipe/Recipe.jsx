@@ -3,35 +3,41 @@ import recipeImg from "../../assets/recipe_1.png";
 import { IoTimeOutline } from "react-icons/io5";
 import { PiFireSimple } from "react-icons/pi";
 
-
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
+   const { id, image, name, description, ingredients, time, calories } = recipe;
    return (
       <>
          <div className="p-6 space-y-6 border rounded-lg">
             <div>
-               <img src={recipeImg} alt="" />
+               <img src={image} alt="recipe image" />
             </div>
             <div>
-               <h3 className="title_font mb-2">Recipe Name</h3>
+               <h3 className="title_font mb-2">{name}</h3>
                <p className="base_font font-light text-gray-600">
-                  short description
+                  {description}
                </p>
             </div>
             <hr />
             <div>
-               <h4 className="title_font mb-2">Ingredients: 6</h4>
-               <p className="base_font font-light text-gray-600">items</p>
+               <h4 className="title_font mb-2">
+                  Ingredients: {ingredients.length}
+               </h4>
+               <p className="base_font font-light text-gray-600">
+                  {ingredients.map((ingredient, i) => (
+                     <li key={i}>{ingredient}</li>
+                  ))}
+               </p>
             </div>
             <hr />
 
             <div className="flex justify-between items-center">
                <p className="flex items-center gap-2 base_font font-light text-gray-600">
                   <IoTimeOutline />
-                  <span>Time</span>
+                  <span>{time}</span>
                </p>
                <p className="flex items-center gap-2 base_font font-light text-gray-600">
                   <PiFireSimple />
-                  <span>calories</span>
+                  <span>{calories}</span>
                </p>
             </div>
 
