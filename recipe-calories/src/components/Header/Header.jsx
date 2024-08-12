@@ -55,7 +55,7 @@ const Header = () => {
                   >
                      {navItem}
 
-                     <div className="form-control mr-2">
+                     <div className="form-control mt-2">
                         <input
                            type="text"
                            placeholder="Search..."
