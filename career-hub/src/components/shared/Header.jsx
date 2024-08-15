@@ -1,29 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Container from "./Container";
 
 const Header = () => {
-   const links = (
+   const navLinks = (
       <>
          <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/statistic">Statistic</NavLink>
          </li>
          <li>
-            <NavLink to="/jobs">Jobs</NavLink>
+            <NavLink to="applied">Applied Jobs</NavLink>
          </li>
          <li>
-            <NavLink to="/applied">Applied Jobs</NavLink>
-         </li>
-         <li>
-            <NavLink to="/statistic">Statistics</NavLink>
-         </li>
-         <li>
-            <NavLink to="/blogs">Blogs</NavLink>
+            <NavLink to="blog">Blog</NavLink>
          </li>
       </>
    );
    return (
-      <>
-         <div className="navbar bg-base-100">
+      <Container>
+         <div className="navbar p-0">
             <div className="navbar-start">
                <div className="dropdown">
                   <div
@@ -48,21 +43,23 @@ const Header = () => {
                   </div>
                   <ul
                      tabIndex={0}
-                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
                   >
-                     {links}
+                     {navLinks}
                   </ul>
                </div>
-               <a className="btn btn-ghost text-xl">daisyUI</a>
+               <a className="text-3xl font-bold">CareerHub</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-               <ul className="menu menu-horizontal px-1">{links}</ul>
+               <ul className="menu menu-horizontal space-x-4 px-1">
+                  {navLinks}
+               </ul>
             </div>
             <div className="navbar-end">
                <a className="btn">Button</a>
             </div>
          </div>
-      </>
+      </Container>
    );
 };
 

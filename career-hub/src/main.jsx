@@ -1,10 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { createRoot } from "react-dom/client";
-import Root from "./components/Root.jsx";
 import "./index.css";
-import Home from "./components/Home.jsx";
-import AppliedJob from "./components/AppliedJob.jsx";
-import ErrorPage from "./components/ErrorPage.jsx";
+import Home from "./components/Home/Home.jsx";
+import Root from "./components/Layout/Root.jsx";
+import ErrorPage from "./ErrorPage.jsx";
 
 const router = createBrowserRouter([
    {
@@ -16,10 +15,7 @@ const router = createBrowserRouter([
             path: "/",
             element: <Home />,
          },
-         {
-            path: "applied",
-            element: <AppliedJob />,
-         },
+
       ],
    },
 ]);
