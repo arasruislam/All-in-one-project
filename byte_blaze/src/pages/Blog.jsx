@@ -12,6 +12,7 @@ const Blog = () => {
       public_reactions_count,
       comments_count,
       reading_time_minutes,
+      tags,
    } = blog;
 
    return (
@@ -85,13 +86,16 @@ const Blog = () => {
          {/* Tags */}
          <div>
             <div className="flex flex-wrap py-6 gap-2 border-t border-dashed border-gray-400 dark:border-gray-600">
-               <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="px-3 py-1 rounded-sm hover:underline bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"
-               >
-                  #MambaUI
-               </a>
+               {tags.map((tag, i) => (
+                  <a
+                     key={i}
+                     rel="noopener noreferrer"
+                     href="#"
+                     className="px-3 py-1 rounded-sm hover:underline bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"
+                  >
+                     #{tag}
+                  </a>
+               ))}
             </div>
          </div>
       </div>
