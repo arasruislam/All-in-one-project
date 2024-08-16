@@ -8,8 +8,10 @@ const Hero = () => {
                   ByteBlaze is the bridge between the complex world of
                   technology and the curious minds eager to understand it
                </p>
-               <button className="btn btn-primary">Read Blogs</button>
-               <button className="btn btn-primary">Bookmarks</button>
+               <div className="flex justify-center gap-4">
+                  <button className="btn btn-primary">Read Blogs</button>
+                  <button className="btn btn-primary">Bookmarks</button>
+               </div>
             </div>
          </div>
       </div>
