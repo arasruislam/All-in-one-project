@@ -9,7 +9,7 @@ const Blogs = () => {
       <section className="">
          <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
             <Link
-               to=""
+               to={`/blog/${blogs[0].id}`}
                className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 border-2 border-primary border-opacity-10 rounded"
             >
                <img
