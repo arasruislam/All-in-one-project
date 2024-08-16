@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const Blog = () => {
    const [tabIndex, setTabIndex] = useState(0);
+   console.log(tabIndex);
 
    const blog = useLoaderData();
    const {
@@ -34,7 +35,10 @@ const Blog = () => {
             <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden  flex-nowrap">
                <Link
                   to={``}
-                  className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b border-gray-400 "
+                  onClick={() => setTabIndex(0)}
+                  className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 rounded-t-lg ${
+                     tabIndex === 0 ? "border border-b-0" : "border-b"
+                  } border-gray-400 `}
                >
                   <svg
                      xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +55,11 @@ const Blog = () => {
                   <span>Content</span>
                </Link>
                <Link
-                  to={`author`}
-                  className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg border-gray-400 "
+                  onClick={() => setTabIndex(1)}
+                  // to={`author`}
+                  className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+                     tabIndex === 1 ? "border border-b-0" : "border-b"
+                  } rounded-t-lg border-gray-400`}
                >
                   <svg
                      xmlns="http://www.w3.org/2000/svg"
