@@ -1,17 +1,15 @@
-import React from 'react';
-
 const Hero = () => {
    return (
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200">
          <div className="hero-content text-center">
             <div className="max-w-md">
-               <h1 className="text-5xl font-bold">Hello there</h1>
+               <h1 className="text-5xl font-bold">Welcome to ByteBlaze</h1>
                <p className="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
+                  ByteBlaze is the bridge between the complex world of
+                  technology and the curious minds eager to understand it
                </p>
-               <button className="btn btn-primary">Get Started</button>
+               <button className="btn btn-primary">Read Blogs</button>
+               <button className="btn btn-primary">Bookmarks</button>
             </div>
          </div>
       </div>
