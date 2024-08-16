@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 
 const Blog = () => {
    const [tabIndex, setTabIndex] = useState(0);
@@ -34,7 +34,7 @@ const Blog = () => {
             {/* Tabs */}
             <div className="flex items-center -mx-4 overflow-x-auto overflow-y-hidden  flex-nowrap">
                <Link
-                  to={``}
+                  to=""
                   onClick={() => setTabIndex(0)}
                   className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 rounded-t-lg ${
                      tabIndex === 0 ? "border border-b-0" : "border-b"
@@ -56,7 +56,7 @@ const Blog = () => {
                </Link>
                <Link
                   onClick={() => setTabIndex(1)}
-                  // to={`author`}
+                  to={`author`}
                   className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
                      tabIndex === 1 ? "border border-b-0" : "border-b"
                   } rounded-t-lg border-gray-400`}
@@ -77,6 +77,9 @@ const Blog = () => {
                   <span>Author</span>
                </Link>
             </div>
+
+            {/* Outlet */}
+            <Outlet />
          </article>
 
          {/* Tags */}
