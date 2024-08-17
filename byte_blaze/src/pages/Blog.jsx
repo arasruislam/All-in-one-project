@@ -3,7 +3,6 @@ import { Link, Outlet, useLoaderData } from "react-router-dom";
 
 const Blog = () => {
    const [tabIndex, setTabIndex] = useState(0);
-   console.log(tabIndex);
 
    const blog = useLoaderData();
    const {
@@ -12,7 +11,6 @@ const Blog = () => {
       public_reactions_count,
       comments_count,
       reading_time_minutes,
-      tags,
    } = blog;
 
    return (
@@ -82,8 +80,6 @@ const Blog = () => {
             {/* Outlet */}
             <Outlet />
          </article>
-
-        
       </div>
    );
 };
