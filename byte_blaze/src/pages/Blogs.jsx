@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import BlogCard from "../components/BlogCard";
+import Loader from "../components/Loader";
 
 const Blogs = () => {
    const blogs = useLoaderData();
