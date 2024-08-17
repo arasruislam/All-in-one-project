@@ -83,21 +83,7 @@ const Blog = () => {
             <Outlet />
          </article>
 
-         {/* Tags */}
-         <div>
-            <div className="flex flex-wrap py-6 gap-2 border-t border-dashed border-gray-400 dark:border-gray-600">
-               {tags.map((tag, i) => (
-                  <a
-                     key={i}
-                     rel="noopener noreferrer"
-                     href="#"
-                     className="px-3 py-1 rounded-sm hover:underline bg-violet-400 dark:bg-violet-600 text-gray-900 dark:text-gray-50"
-                  >
-                     #{tag}
-                  </a>
-               ))}
-            </div>
-         </div>
+        
       </div>
    );
 };
