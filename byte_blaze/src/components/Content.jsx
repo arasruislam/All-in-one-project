@@ -2,11 +2,11 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import errorImg from "../assets/404.jpg";
 import Markdown from "react-markdown";
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from "rehype-raw";
 
 const Content = () => {
    const blog = useLoaderData();
-   const { cover_image, title, tags, body_html } = blog;
+   const { cover_image, title, tags, body_html, url } = blog;
 
    return (
       <div className="mx-auto group hover:no-underline focus:no-underline  transition border-2 border-primary border-opacity-10 p-1 rounded ">
@@ -32,9 +32,13 @@ const Content = () => {
          </div>
          {/* content body */}
          <div className="p-6 space-y-2 overflow-x-scroll">
-            <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">
+            <a
+               href={url}
+               target="_blank"
+               className="text-2xl font-semibold group-hover:underline group-focus:underline"
+            >
                {title}
-            </h3>
+            </a>
             {/* <Markdown >{body_html}</Markdown> */}
             <Markdown rehypePlugins={[rehypeRaw]}>{body_html}</Markdown>
          </div>
