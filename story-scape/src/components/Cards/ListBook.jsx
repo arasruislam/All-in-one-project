@@ -60,10 +60,10 @@ const ListBook = ({ book }) => {
                {/* rating */}
                <div className="flex items-center gap-4 border-dashed border-t-2 mt-auto pt-4 flex-wrap">
                   <div className="flex items-center gap-1 px-4 py-3 rounded-full bg-blue-200 bg-opacity-20 text-blue-500">
-                     rating: {book?.category}
+                     Category: {book?.category}
                   </div>
                   <div className="flex items-center gap-1 px-4 py-3 rounded-full bg-yellow-200 bg-opacity-20 text-yellow-500">
-                     rating: {book?.rating} <FaRegStar />
+                     Rating: {book?.rating} <FaRegStar />
                   </div>
                   <Button primary={true} round={true}>View Details</Button>
                </div>

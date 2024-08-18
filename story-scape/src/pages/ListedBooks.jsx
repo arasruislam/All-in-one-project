@@ -12,13 +12,50 @@ const ListedBooks = () => {
 
    useEffect(() => {
       const readBooks = getReadList();
+      const wishlistBook = getWishlist();
+
+      // set data
+      setWishlist(wishlistBook);
       setReadList(readBooks);
    }, []);
 
-   useEffect(() => {
-      const wishlistBook = getWishlist();
-      setWishlist(wishlistBook);
-   }, []);
+   // sort by rating
+   const sortByRating = () => {
+      const sortedReadListByRating = [...readList];
+      const sortedWishlistByRating = [...wishlist];
+
+      sortedReadListByRating.sort((a, b) => b.rating - a.rating);
+      sortedWishlistByRating.sort((a, b) => b.rating - a.rating);
+
+      setReadList(sortedReadListByRating);
+      setWishlist(sortedWishlistByRating);
+   };
+   // sort by page number
+   const sortByPageNumber = () => {
+      const sortedReadListByPageNumber = [...readList];
+      const sortedWishlistByPageNumber = [...wishlist];
+
+      sortedReadListByPageNumber.sort((a, b) => b.totalPages - a.totalPages);
+      sortedWishlistByPageNumber.sort((a, b) => b.totalPages - a.totalPages);
+
+      setReadList(sortedReadListByPageNumber);
+      setWishlist(sortedWishlistByPageNumber);
+   };
+
+   const sortByYearOfPublishing = () => {
+      const sortedReadListByYearOfPublishing = [...readList];
+      const sortedWishlistByYearOfPublishing = [...wishlist];
+
+      sortedReadListByYearOfPublishing.sort(
+         (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+      sortedWishlistByYearOfPublishing.sort(
+         (a, b) => b.yearOfPublishing - a.yearOfPublishing
+      );
+
+      setReadList(sortedReadListByYearOfPublishing);
+      setWishlist(sortedWishlistByYearOfPublishing);
+   };
 
    return (
       <>
@@ -26,6 +63,7 @@ const ListedBooks = () => {
             <div className="w-full grid justify-center font-bold text-xl py-4 bg-gray-200 rounded-lg mb-4">
                Books
             </div>
+
             {/* sort by */}
             <div className="dropdown">
                <Button
@@ -40,13 +78,13 @@ const ListedBooks = () => {
                   className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
                >
                   <li>
-                     <a>Rating</a>
+                     <a onClick={sortByRating}>Rating</a>
                   </li>
                   <li>
-                     <a>Number of pages</a>
+                     <a onClick={sortByPageNumber}>Number of pages</a>
                   </li>
                   <li>
-                     <a>Published year</a>
+                     <a onClick={sortByYearOfPublishing}>Published year</a>
                   </li>
                </ul>
             </div>
@@ -56,7 +94,6 @@ const ListedBooks = () => {
          <div>
             <div className="flex items-center pt-12 overflow-x-auto overflow-y-hidden  flex-nowrap">
                <Link
-                  // to=""
                   onClick={() => setTabIndex(0)}
                   className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 rounded-t-lg ${
                      tabIndex === 0 ? "border border-b-0" : "border-b"
@@ -77,7 +114,6 @@ const ListedBooks = () => {
                   <span>Read Books</span>
                </Link>
                <Link
-                  // to=""
                   onClick={() => setTabIndex(1)}
                   className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
                      tabIndex === 1 ? "border border-b-0" : "border-b"
@@ -101,12 +137,21 @@ const ListedBooks = () => {
             </div>
 
             {/* read books & wishlist book */}
-            {tabIndex === 0 &&
+            {tabIndex === 0 && (
                <div className="mt-6 mx-auto px-2 md:px-0 w-full md:w-4/5">
-               {readList.map((book) => (
-                  <ListBook key={book.bookId} book={book} />
-               ))}
-            </div>}
+                  {readList.map((book) => (
+                     <ListBook key={book.bookId} book={book} />
+                  ))}
+               </div>
+            )}
+
+            {tabIndex === 1 && (
+               <div className="mt-6 mx-auto px-2 md:px-0 w-full md:w-4/5">
+                  {wishlist.map((book) => (
+                     <ListBook key={book.bookId} book={book} />
+                  ))}
+               </div>
+            )}
          </div>
       </>
    );
