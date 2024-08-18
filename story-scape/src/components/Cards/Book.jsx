@@ -21,8 +21,8 @@ const Book = ({ book }) => {
             <div className="card-body px-0 pb-0">
                {/* tags */}
                <div className="flex gap-2">
-                  {book?.tags.map((tag) => (
-                     <span className="bg-[#23BE0A] bg-opacity-10 py-1 px-2 rounded-full asru_primary">
+                  {book?.tags.map((tag, i) => (
+                     <span key={i} className="bg-[#23BE0A] bg-opacity-10 py-1 px-2 rounded-full asru_primary">
                         {tag}
                      </span>
                   ))}

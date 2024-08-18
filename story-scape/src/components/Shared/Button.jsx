@@ -4,6 +4,7 @@ const Button = ({
    secondary,
    primaryOutline,
    secondaryOutline,
+   round,
    onClick,
 }) => {
    return (
@@ -22,7 +23,7 @@ const Button = ({
             } ${
                secondaryOutline &&
                "btn border border-[#50B1C9] asru_secondary bg-white font-bold transition-color hover:bg-[#50B1C9] hover:border-[#50B1C9] hover:text-white"
-            }`}
+            } ${round && 'rounded-full'}`}
          >
             {children}
          </button>
