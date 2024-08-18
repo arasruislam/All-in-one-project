@@ -7,8 +7,8 @@ const Books = ({ books }) => {
 
          {/* Books card */}
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-2">
-            {books.map((book) => (
-               <Book book={book} key={book.id} />
+            {books.map((book, i) => (
+               <Book key={i} book={book} />
             ))}
          </div>
       </div>
