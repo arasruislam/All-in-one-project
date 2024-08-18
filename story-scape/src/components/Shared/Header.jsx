@@ -108,7 +108,7 @@ const Header = () => {
                   </div>
                </ul>
             </div>
-            <Link to="/" className="text-2xl font-extrabold">Story Scape</Link>
+            <Link to="/" className="text-2xl font-extrabold asru_primary">Story Scape</Link>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal  space-x-2">{navItems}</ul>

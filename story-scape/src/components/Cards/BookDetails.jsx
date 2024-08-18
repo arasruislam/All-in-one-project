@@ -1,13 +1,20 @@
 import React from "react";
-import { useLoaderData,useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import LazyLoad from "react-lazyload";
 import Button from "../Shared/Button";
+import { saveReadList, saveWishlist } from "../../utils/main";
 
 const BookDetails = () => {
    const book = useLoaderData();
    const params = useParams();
-
    const detailsBook = book.find((book) => book.bookId === params.id);
+
+   const handleSaveBook = (book) => {
+      saveReadList(book);
+   };
+   const handleWishlist = (book) => {
+      saveWishlist(book);
+   };
 
    return (
       <div className="min-h-[calc(100vh-127px)] flex items-center">
@@ -70,8 +77,18 @@ const BookDetails = () => {
 
                {/* buttons */}
                <div className="flex gap-4 mt-4">
-                  <Button primaryOutline={true}>Read</Button>
-                  <Button secondary={true}>Wishlist</Button>
+                  <Button
+                     onClick={() => handleSaveBook(detailsBook)}
+                     primaryOutline={true}
+                  >
+                     Read
+                  </Button>
+                  <Button
+                     onClick={() => handleWishlist(detailsBook)}
+                     secondary={true}
+                  >
+                     Wishlist
+                  </Button>
                </div>
             </div>
          </div>
