@@ -12,7 +12,7 @@ const Hero = () => {
                   Books to freshen up your bookshelf
                </h1>
                <Button primary={true}>
-                  <Link>View The List</Link>
+                  <Link to="/listed_book">View The List</Link>
                </Button>
             </div>
             <div>
