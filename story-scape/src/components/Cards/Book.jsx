@@ -1,8 +1,9 @@
-import React from 'react';
+import demo from "../../assets/book_1.png";
+import { FaRegStar } from "react-icons/fa";
 
 const Book = () => {
    return (
-      <div className="card w-96 border p-6">
+      <div className="card w-full md:w-96 border p-6">
          {/* card image */}
          <div className="py-6 rounded-lg grid place-items-center bg-gray-200">
             <img
