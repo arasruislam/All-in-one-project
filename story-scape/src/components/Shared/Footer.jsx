@@ -2,7 +2,7 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
    return (
-      <footer className="footer bg-base-300 text-base-content items-center p-4 rounded">
+      <footer className="footer place-items-center sm:place-items-start  bg-base-300 text-base-content items-center p-4 rounded">
          <aside className="grid-flow-col items-center">
             <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
          </aside>
