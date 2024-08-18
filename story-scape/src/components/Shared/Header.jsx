@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Button from "./Button";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
                className={({ isActive }) =>
                   isActive
                      ? "border border-[#23BE0A] asru_primary font-bold transition-color hover:bg-[#23BE0A] hover:text-white"
-                     : "hover:border-2"
+                     : ""
                }
             >
                Home
@@ -108,7 +108,7 @@ const Header = () => {
                   </div>
                </ul>
             </div>
-            <a className="text-2xl font-extrabold">Story Scape</a>
+            <Link to="/" className="text-2xl font-extrabold">Story Scape</Link>
          </div>
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal  space-x-2">{navItems}</ul>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useLoaderData,useParams } from "react-router-dom";
 import LazyLoad from "react-lazyload";
+import Button from "../Shared/Button";
 
 const BookDetails = () => {
    const book = useLoaderData();
@@ -10,7 +11,7 @@ const BookDetails = () => {
 
    return (
       <div className="min-h-[calc(100vh-127px)] flex items-center">
-         <div className="card card-side gap-4 flex-1 py-4">
+         <div className="card flex-col lg:flex-row px-2 lg:px-0 card-side gap-4 flex-1 py-4">
             {/* book image */}
             <div className="rounded-lg p-8 bg-gray-200 shadow">
                <LazyLoad once={true}>
@@ -65,6 +66,12 @@ const BookDetails = () => {
                      <span className="flex-1">Rating: </span>
                      <span className="flex-1">{detailsBook?.rating}</span>
                   </p>
+               </div>
+
+               {/* buttons */}
+               <div className="flex gap-4 mt-4">
+                  <Button primaryOutline={true}>Read</Button>
+                  <Button secondary={true}>Wishlist</Button>
                </div>
             </div>
          </div>
