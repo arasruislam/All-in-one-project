@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
 
 const Header = () => {
    const navItems = (
@@ -114,12 +115,8 @@ const Header = () => {
          </div>
          {/* Button sign in/sing up */}
          <div className="navbar-end space-x-2 hidden md:flex">
-            <a className="btn bg-[#23BE0A] hover:bg-[#1da208]  border-none text-white">
-               Sign In
-            </a>
-            <a className="btn bg-[#50B1C9] hover:bg-[#3897af] border-none text-white">
-               Sign Up
-            </a>
+            <Button primary={true}>Sing In</Button>
+            <Button secondary={true}>Sign Up</Button>
          </div>
       </div>
    );
