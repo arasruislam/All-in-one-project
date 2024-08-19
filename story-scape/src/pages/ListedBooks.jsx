@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link, Outlet } from "react-router-dom";
 import ListBook from "../components/Cards/ListBook";
 import { getReadList, getWishlist } from "../utils/main";
+import ErrorState from "../components/Shared/ErrorState";
 
 const ListedBooks = () => {
    const [tabIndex, setTabIndex] = useState(0);
@@ -56,6 +57,16 @@ const ListedBooks = () => {
       setReadList(sortedReadListByYearOfPublishing);
       setWishlist(sortedWishlistByYearOfPublishing);
    };
+
+   if (readList.length < 1 && wishlist.length < 1) {
+      return (
+         <ErrorState
+            message={"No book added in your read list"}
+            address="/"
+            label="browse home page for book"
+         />
+      );
+   }
 
    return (
       <>
